@@ -7,13 +7,17 @@
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "./lib/"
+  ],
   "scripts": {
     "build": "npm run build:esbuild && npm run types",
     "build:esbuild": "esbuild src/*.ts --minify --bundle --splitting --chunk-names=chunks/[name]-[hash] --outdir=lib --platform=node --external:react --target=node16 --format=esm",
     "dev": "node --loader=ts-node/esm --no-warnings src/index.ts",
-    "publish": "np",
+    "release": "release-it",
     "test": "tap --ts --node-arg=--no-warnings --node-arg=--loader=ts-node/esm",
-    "types": "tsc -p tsconfig.build.json"
+    "types": "tsc -p tsconfig.build.json",
+    "preversion": "npm run build"
   },
   "devDependencies": {
     "@explodingcamera/eslint-config": "^21.0.0",
@@ -21,9 +25,17 @@
     "@types/tap": "^15.0.5",
     "esbuild": "^0.14.16",
     "eslint": "^8.8.0",
-    "np": "^7.6.0",
+    "release-it": "^14.12.4",
     "tap": "^15.1.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    }
   }
 }
