@@ -24,20 +24,5 @@
     "tap": "^15.1.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5"
-  },
-  "auto": {
-    "onlyPublishWithReleaseLabel": true,
-    "baseBranch": "main",
-    "plugins": [
-      "npm",
-      "all-contributors",
-      [
-        "conventional-commits",
-        {
-          "defaultReleaseType": "patch"
-        }
-      ],
-      "released"
-    ]
   }
 }
