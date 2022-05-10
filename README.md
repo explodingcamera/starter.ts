@@ -1,3 +1,3 @@
 # TypeScript Library Starter
 
-Minimal starter for new libraries written in TypeScript.
+Henry's minimal starter for new libraries written in TypeScript.
